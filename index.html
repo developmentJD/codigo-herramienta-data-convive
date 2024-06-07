@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <base target="_top" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .line {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 15px;
+        background-color: #d8d8d8;
+      }
+
+      .load-3 .line:nth-last-child(1) {
+        animation: loadingC 0.6s 0.1s linear infinite;
+      }
+
+      .load-3 .line:nth-last-child(2) {
+        animation: loadingC 0.6s 0.2s linear infinite;
+      }
+
+      .load-3 .line:nth-last-child(3) {
+        animation: loadingC 0.6s 0.3s linear infinite;
+      }
+
+      .load-8 .line {
+        animation: loadingH 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+      }
+
+      @keyframes loadingC {
+        0 {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(0, 8px);
+        }
+
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+      .home {
+        display: flex;
+        justify-content: center;
+      }
+
+      .iconos {
+        display: flex;
+        width: 50%;
+      }
+      .dataconvive {
+        display: flex;
+        width: 30%;
+        height: 30%;
+      }
+      .mascomunidad {
+        display: flex;
+        width: 600px;
+        padding: 30px;
+      }
+      .footer {
+        background: #4f2170;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: full;
+        padding: 20px;
+      }
+      .fch {
+        display: flex;
+        width: 100px;
+        margin-right: 150px;
+      }
+      .imgherramienta {
+        display: flex;
+        width: 100px;
+        margin-right: 150px;
+      }
+      .mineduc {
+        display: flex;
+        width: 100px;
+        margin-right: 150px;
+      }
+      .uatacama {
+        display: flex;
+        width: 200px;
+        margin-right: 150px;
+      }
+      .uaustral {
+        display: flex;
+        width: 200px;
+        margin-right: 150px;
+      }
+      .uconcepcion {
+        display: flex;
+        width: 200px;
+        margin-right: 150px;
+      }
+
+      /* Media query for hiding icons image */
+      @media (max-width: 500px) and (max-height: 1000px) {
+        .iconos {
+          display: none;
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <main
+      class="bg-cover bg-no-repeat bg-center h-full w-full"
+      style="background-image: url('assets/fondo.png')"
+    >
+      <!-- ICONO COMUNIDAD -->
+      <header class=" p-2">
+        <img
+          class="mascomunidad"
+          src="assets/logo-mas-comunidad.png"
+          alt="mascomunidad"
+        />
+      </header>
+
+      <div class="w-full h-[40rem] flex">
+        <div class="w-[50%] flex flex-col justify-center items-start p-20 ">
+          <!-- class="dataconvive" -->
+          <!-- box 1 -->
+          <img class="w-3/5" src="assets/Data-Convive.png" alt="dataconvive" />
+          <div class="landing-page">
+            <div class="content">
+              <div class="flex">
+                <div class="mt-4">
+                  <div id="resultContainer">
+                    <div>
+                      <form id="form">
+                        <button
+                          id="generateButton"
+                          class="bg-gray-50 hover:bg-gray-100 text-blue-950 py-2 px-20 rounded-full"
+                          type="button"
+                          onclick="generateTool()"
+                        >
+                          <div class="flex items-center justify-center">
+                            <span id="buttonText">Generar Herramienta</span>
+                            <span id="loading" class="ml-2 hidden flex gap-2">
+                              Generando herramienta
+                              <div class="load-3">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                              </div>
+                            </span>
+                          </div>
+                        </button>
+                      </form>
+                    </div>
+                    <a
+                      id="linkTool"
+                      target="_blank"
+                      class="hidden border bg-gray-50 cursor-pointer rounded-full w-fit flex py-2 px-20 mt-4 gap-4 items-center hover:shadow-lg"
+                      >Acceder a la Herramienta Generada
+                      <span>
+                        <svg
+                          width="24px"
+                          height="24px"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          stroke="#000000"
+                        >
+                          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                          <g
+                            id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></g>
+                          <g id="SVGRepo_iconCarrier">
+                            <path
+                              d="M10 14L12.2728 19.3032C12.5856 20.0331 13.5586 20.1103 13.9486 19.4185C14.7183 18.0535 15.8591 15.8522 17 13C19 8 20 4 20 4C20 4 16 5 11 7C8.14784 8.14086 5.94647 9.28173 4.58149 10.0514C3.88975 10.4414 3.96687 11.4144 4.69678 11.7272L10 14Z"
+                              stroke="#000000"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </g>
+                        </svg>
+                      </span>
+                    </a>
+                    <div id="strongText" class="hidden pt-2">
+                      <p class="text-xs text-gray-100">
+                        <strong>Nota:</strong> se ha creado con exito una copia de
+                        la herramienta Data-Convive.
+                      </p>
+                    </div>
+    
+                    <div>
+                      <p id="textAltErr" class="text-red-200 text-xs hidden"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- box 2 -->
+        <div class="w-[50%] h-[40rem] iconos">
+          <img class="w-[95%]" src="assets/iconos.png" alt="iconos" />
+        </div>
+      </div>
+
+
+
+      <footer class="footer">
+        <img class="mineduc" src="assets/logo-Mineduc.png" alt="mineduc" />
+        <img class="uatacama" src="assets/logo-U-Atacama.png" alt="uatacama" />
+        <img
+          class="uaustral"
+          src="assets/logo-U-Austral-Chile.png"
+          alt="uaustral"
+        />
+        <img
+          class="uconcepcion"
+          src="assets/logo-U-Concepcion.png"
+          alt="uconcepcion"
+        />
+        <img class="fch" src="assets/logo-Fch.png" alt="fch" />
+        <img
+          class="imgherramienta"
+          src="assets/IMG-HERRAMIENTA_DATA-CONVIVE-11.png"
+          alt="imgherramienta"
+        />
+      </footer>
+    </main>
+    <script>
+      async function generateTool() {
+        let generateButton = document.getElementById("generateButton");
+        let loading = document.getElementById("loading");
+        let buttonText = document.getElementById("buttonText");
+        let divLinkHerramienta = document.getElementById(
+          "div-link-herramienta"
+        );
+        let resultLink = document.getElementById("resultLink");
+        let strongText = document.getElementById("strongText");
+        let buttonTool = document.getElementById("linkTool");
+        let textAltErr = document.getElementById("textError");
+        loading.classList.remove("hidden");
+        buttonText.classList.add("hidden");
+
+        fetch(
+          "https://script.google.com/macros/s/AKfycbzNqN_OmM0HFf4RNppFboyKB0iz5BK1ukjnD6jId-JOCwzzalYatIOKBszbeFgy5X8/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              return response.json(); // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then((data) => {
+            console.log(data);
+            console.log(data.url);
+            if (data.status === "success") {
+              generateButton.classList.add("hidden");
+              buttonTool.classList.remove("hidden");
+              strongText.classList.remove("hidden");
+              buttonTool.href = data.url;
+              loading.classList.add("hidden");
+
+              document.getElementById("linkTool").textontent =
+                "Copia creada exitosamente: " + data.url;
+            } else {
+              document.getElementById("responseMessage").textContent =
+                "Error: " + data.message;
+
+              generateButton.classList.add("hidden");
+              loading.classList.add("hidden");
+              buttonText.classList.remove("hidden");
+              divLinkHerramienta.classList.add("hidden");
+              strongText.classList.add("hidden");
+              buttonTool.classList.add("hidden");
+              textAltErr.classList.remove("hidden");
+              textAltErr.textContent = data.message;
+            }
+          })
+          .catch(function (error) {
+            document.getElementById("responseMessage").textContent =
+              "Error: " + error.message;
+          });
+      }
+    </script>
+  </body>
+</html>
